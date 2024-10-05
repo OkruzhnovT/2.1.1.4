@@ -8,24 +8,30 @@ import java.util.List;
 
 public class UserServiceImpl extends UserDaoJDBCImpl implements UserService {
     UserDaoJDBCImpl userDao = new UserDaoJDBCImpl();
-    public void createUsersTable() throws SQLException {
+
+    @Override
+    public void createUsersTable() {
         userDao.createUsersTable();
     }
 
-    public void dropUsersTable() throws SQLException {
+    @Override
+    public void dropUsersTable() {
         userDao.dropUsersTable();
     }
 
-    public void saveUser(String name, String lastName, byte age) throws SQLException {
-        userDao.saveUser(name,lastName,age);
-        System.out.println("User с именем — "+name+" добавлен в базу данных");
+    @Override
+    public void saveUser(String name, String lastName, byte age) {
+        userDao.saveUser(name, lastName, age);
+        System.out.println("User с именем — " + name + " добавлен в базу данных");
     }
 
-    public void removeUserById(long id) throws SQLException {
+    @Override
+    public void removeUserById(long id) {
         userDao.removeUserById(id);
     }
 
-    public List<User> getAllUsers() throws SQLException {
+    @Override
+    public List<User> getAllUsers() {
         List<User> users = userDao.getAllUsers();
         for (User user : users) {
             System.out.println(user);
@@ -33,7 +39,8 @@ public class UserServiceImpl extends UserDaoJDBCImpl implements UserService {
         return users;
     }
 
-    public void cleanUsersTable() throws SQLException {
+    @Override
+    public void cleanUsersTable() {
         userDao.cleanUsersTable();
     }
 }

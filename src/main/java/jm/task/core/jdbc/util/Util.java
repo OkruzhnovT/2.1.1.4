@@ -10,10 +10,11 @@ public class Util {
     private static final String URL = "jdbc:mysql://localhost:3306/kata3";
     private static final String USERNAME = "root";
     private static final String PASWORD = "root";
-    public Connection getConnection() {
+
+    public static Connection getConnection() {
         Connection connection = null;
         try {
-            connection  = DriverManager.getConnection(
+            connection = DriverManager.getConnection(
                     URL,
                     USERNAME, PASWORD);
         } catch (SQLException e) {
@@ -23,14 +24,11 @@ public class Util {
     }
 
 
-    public static void closeConnection(Connection connection) throws SQLException {
+    public static void closeConnection(Connection connection) {
         try {
             connection.close();
         } catch (SQLException e) {
             err.println("Connection not closed");
         }
     }
-
-
-    // реализуйте настройку соеденения с БД
 }
