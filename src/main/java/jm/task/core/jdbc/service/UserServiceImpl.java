@@ -5,11 +5,11 @@ import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserServiceImpl extends UserDaoHibernateImpl implements UserService {
-    UserDaoHibernateImpl userDao = new UserDaoHibernateImpl();
-
+    private static final UserDaoHibernateImpl userDao = new UserDaoHibernateImpl();
     @Override
     public void createUsersTable() {
         userDao.createUsersTable();
